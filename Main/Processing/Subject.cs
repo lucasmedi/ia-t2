@@ -66,6 +66,11 @@ namespace Main
             Texts.ForEach(t => t.Words.RemoveAll(w => w.Length < 2));
         }
 
+        public void RemoveEmpty()
+        {
+            Texts.ForEach(t => t.Words.RemoveAll(w => w == String.Empty));
+        }
+
         public void CalculateTraningAndTest()
         {
             TrainingTexts = new List<Text>();
@@ -85,7 +90,6 @@ namespace Main
         public void SaveFiles()
         {
             var directory = FolderHelper.GetDirectory(Folder.Preprocessados, Name);
-
             foreach (var text in Texts)
             {
                 FolderHelper.CreateFile(directory, text.FileName, text.Words);

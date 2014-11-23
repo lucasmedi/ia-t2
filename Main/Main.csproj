@@ -42,16 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfig.cs" />
-    <Compile Include="BagOfWord.cs" />
-    <Compile Include="FolderHelper.cs" />
-    <Compile Include="Processing.cs" />
+    <Compile Include="Helpers\AppConfig.cs" />
+    <Compile Include="Processing\Arff.cs" />
+    <Compile Include="Processing\BagOfWord.cs" />
+    <Compile Include="Helpers\FolderHelper.cs" />
+    <Compile Include="Processing\Processing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="Subject.cs" />
-    <Compile Include="Text.cs" />
-    <Compile Include="Word.cs" />
+    <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Processing\Subject.cs" />
+    <Compile Include="Processing\Text.cs" />
+    <Compile Include="Processing\Word.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

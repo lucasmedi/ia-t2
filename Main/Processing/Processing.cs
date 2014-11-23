@@ -33,19 +33,38 @@ namespace Main
                 });
         }
 
+        public List<string> GetSubjects()
+        {
+            return subjects.Select(o => o.Name).ToList();
+        }
+
         public BagOfWord Preprocessing()
         {
             var words = new List<Word>();
             subjects.ForEach(x =>
             {
+                Console.WriteLine("Preprocessando arquivo {0}:", x.Name);
+                Console.Write("    Limpar arquivos: ");
+                // Limpa arquivos
                 x.RemoveStopWords(stopWords);
                 x.RemoveSpecialCharacters();
                 x.RemoveNumbers();
                 x.RemoveOther();
-                x.SaveFiles();
+                x.RemoveEmpty();
+                Console.WriteLine("OK");
 
+                Console.Write("    Salvar arquivos limpos: ");
+                // Salva arquivos limpos
+                x.SaveFiles();
+                Console.WriteLine("OK");
+
+                // Separa arquivos de treino e teste
                 x.CalculateTraningAndTest();
+
+                Console.Write("    Organizar e contar palavras: ");
+                // Cria bag of words
                 x.GenerateOwnBagOfWords();
+                Console.WriteLine("OK");
 
                 words.AddRange(x.Words);
             });
@@ -55,10 +74,12 @@ namespace Main
 
         public BagOfWord GenerateBagOfWords(List<Word> words)
         {
+            Console.Write("Gerar bag of words geral: ");
             var res = words.GroupBy(x => x.Name)
                 .Select(x => new Word(x.Key, (int)x.Sum(w => w.Frequency)))
                 .OrderByDescending(x => x.Frequency)
                 .ToList<Word>();
+            Console.WriteLine("OK");
 
             return new BagOfWord(res);
         }

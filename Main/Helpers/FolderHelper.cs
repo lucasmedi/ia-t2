@@ -17,7 +17,7 @@ namespace Main
             }
         }
 
-        public static string FilesPath
+        public static string ArquivosPath
         {
             get
             {
@@ -25,11 +25,11 @@ namespace Main
             }
         }
 
-        public static string OriginalPath
+        public static string OriginaisPath
         {
             get
             {
-                return FilesPath + @"\Originais";
+                return ArquivosPath + @"\Originais";
             }
         }
 
@@ -37,7 +37,7 @@ namespace Main
         {
             get
             {
-                return FilesPath + @"\Preprocessados";
+                return ArquivosPath + @"\Preprocessados";
             }
         }
 
@@ -45,18 +45,7 @@ namespace Main
 
         public static DirectoryInfo GetDirectory(Folder op, string name = "")
         {
-            var path = string.Empty;
-            switch (op)
-            {
-                case Folder.Originais:
-                    path = OriginalPath;
-                    break;
-                case Folder.Preprocessados:
-                    path = PreprocessadosPath;
-                    break;
-            }
-
-            var directory = new DirectoryInfo(path);
+            var directory = new DirectoryInfo(GetPath(op));
 
             if (name != string.Empty)
             {
@@ -75,21 +64,15 @@ namespace Main
 
         public static DirectoryInfo[] GetDirectories(Folder op)
         {
-            var path = string.Empty;
-            switch (op)
-            {
-                case Folder.Originais:
-                    path = OriginalPath;
-                    break;
-                case Folder.Preprocessados:
-                    path = PreprocessadosPath;
-                    break;
-            }
-
-            var directory = new DirectoryInfo(path);
+            var directory = new DirectoryInfo(GetPath(op));
             Console.WriteLine("Diretórios encontrados: {0}", directory.GetDirectories().Length.ToString());
 
             return directory.GetDirectories();
+        }
+
+        public static StreamWriter CreateFile(DirectoryInfo directory, string name)
+        {
+            return File.CreateText(directory.FullName + @"\" + name);
         }
 
         public static void CreateFile(DirectoryInfo directory, string name, List<string> content)
@@ -101,6 +84,25 @@ namespace Main
                     sw.WriteLine(text);
                 }
             }
+        }
+
+        private static string GetPath(Folder op)
+        {
+            var path = string.Empty;
+            switch (op)
+            {
+                case Folder.Arquivos:
+                    path = ArquivosPath;
+                    break;
+                case Folder.Originais:
+                    path = OriginaisPath;
+                    break;
+                case Folder.Preprocessados:
+                    path = PreprocessadosPath;
+                    break;
+            }
+
+            return path;
         }
     }
 }

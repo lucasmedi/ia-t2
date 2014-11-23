@@ -6,16 +6,11 @@ namespace Main
 {
     public class BagOfWord
     {
-        public List<Word> words;
-
-        public BagOfWord()
-        {
-            words = new List<Word>();
-        }
+        public List<Word> Words { get; set; }
 
         public BagOfWord(List<Word> words)
         {
-            this.words = words;
+            this.Words = words;
         }
 
         public void GetWords(string value)
@@ -23,7 +18,7 @@ namespace Main
             string[] stringSeparators = new string[] { "\n", "\r" };
             value.Split(stringSeparators, StringSplitOptions.None)
                 .ToList<String>()
-                .ForEach(x => words.Add(new Word(x)));
+                .ForEach(x => Words.Add(new Word(x)));
         }
     }
 }

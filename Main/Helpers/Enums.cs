@@ -9,6 +9,7 @@ namespace Main
 
     public enum Folder
     {
+        Arquivos,
         Originais,
         Preprocessados
     }
