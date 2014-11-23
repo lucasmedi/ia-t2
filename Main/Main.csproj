@@ -359,6 +359,10 @@
   <ItemGroup>
     <Content Include="Arquivos\lista de stopwords Portugues.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Arquivos_passo1\" />
+    <Folder Include="Arquivos_passo2\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
