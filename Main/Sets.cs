@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tf_ia_geradorarquivoweka
+﻿
+namespace Main
 {
-   enum Sets
-   {
-       TRAINING = 80,
-       TEST = 20,
-       FEATURESRANKING = 20
-   }
-
-
+    public enum Sets
+    {
+        TRAINING = 80,
+        TEST = 20
+    }
 }

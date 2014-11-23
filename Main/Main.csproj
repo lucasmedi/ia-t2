@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConfig.cs" />
     <Compile Include="BagOfWord.cs" />
     <Compile Include="Processing.cs" />
     <Compile Include="Program.cs" />
@@ -54,11 +56,9 @@
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0009.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0010.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0011.ANIMAL_DOMESTICO" />
-    <None Include="Arquivos\ANIMAL_DOMESTICO\x0020.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0026.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0027.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0028.ANIMAL_DOMESTICO" />
-    <None Include="Arquivos\ANIMAL_DOMESTICO\x0029.ANIMAL_DOMESTICO.MUSICA_BRASILEIRA" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0030.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0042.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0052.ANIMAL_DOMESTICO" />
@@ -68,8 +68,6 @@
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0068.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0070.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0071.ANIMAL_DOMESTICO" />
-    <None Include="Arquivos\ANIMAL_DOMESTICO\x0073.FEN_NATUREZA.ANIMAL_DOMESTICO" />
-    <None Include="Arquivos\ANIMAL_DOMESTICO\x0074.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0079.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0080.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0081.ANIMAL_DOMESTICO" />
@@ -93,7 +91,6 @@
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0289.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0365.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x0534.ANIMAL_DOMESTICO" />
-    <None Include="Arquivos\ANIMAL_DOMESTICO\x0697.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x1749.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x2556.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x2608.ANIMAL_DOMESTICO" />
@@ -107,7 +104,6 @@
     <None Include="Arquivos\ANIMAL_DOMESTICO\x3934.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x4394.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x4471.ANIMAL_DOMESTICO.VIAGEM_INTERNAC" />
-    <None Include="Arquivos\ANIMAL_DOMESTICO\x4705.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x4781.PROFUNIV.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\ANIMAL_DOMESTICO\x4884.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\CAMP_ELEITORAL\x0126.CAMP_ELEITORAL" />
@@ -116,7 +112,6 @@
     <None Include="Arquivos\CAMP_ELEITORAL\x0258.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x0261.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x0437.TRAF_DROGAS.CAMP_ELEITORAL" />
-    <None Include="Arquivos\CAMP_ELEITORAL\x0438.ENSINO.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1044.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1045.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1046.CAMP_ELEITORAL" />
@@ -139,14 +134,12 @@
     <None Include="Arquivos\CAMP_ELEITORAL\x1119.ALUGUEL_IMOVEL.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1129.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1131.CAMP_ELEITORAL" />
-    <None Include="Arquivos\CAMP_ELEITORAL\x1132.ENSINO.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1164.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1170.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1179.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1186.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1194.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x1195.PROFUNIV.CAMP_ELEITORAL" />
-    <None Include="Arquivos\CAMP_ELEITORAL\x1958.ENSINO.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x2270.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x2785.CAMP_ELEITORAL" />
     <None Include="Arquivos\CAMP_ELEITORAL\x2789.CAMP_ELEITORAL" />
@@ -176,7 +169,6 @@
     <None Include="Arquivos\ENSINO\x0375.ENSINO" />
     <None Include="Arquivos\ENSINO\x0408.ENSINO" />
     <None Include="Arquivos\ENSINO\x0411.ENSINO" />
-    <None Include="Arquivos\ENSINO\x0438.ENSINO.CAMP_ELEITORAL" />
     <None Include="Arquivos\ENSINO\x0461.ENSINO" />
     <None Include="Arquivos\ENSINO\x0464.ENSINO" />
     <None Include="Arquivos\ENSINO\x0485.ENSINO.ALUGUEL_IMOVEL" />
@@ -203,10 +195,8 @@
     <None Include="Arquivos\ENSINO\x0857.ENSINO" />
     <None Include="Arquivos\ENSINO\x0875.ENSINO" />
     <None Include="Arquivos\ENSINO\x0978.ENSINO" />
-    <None Include="Arquivos\ENSINO\x1132.ENSINO.CAMP_ELEITORAL" />
     <None Include="Arquivos\ENSINO\x1583.ENSINO" />
     <None Include="Arquivos\ENSINO\x1807.ENSINO" />
-    <None Include="Arquivos\ENSINO\x1958.ENSINO.CAMP_ELEITORAL" />
     <None Include="Arquivos\ENSINO\x2292.ENSINO" />
     <None Include="Arquivos\ENSINO\x2297.ENSINO.USO_COMPUTADOR" />
     <None Include="Arquivos\ENSINO\x2301.ENSINO.USO_COMPUTADOR" />
@@ -238,15 +228,12 @@
     <None Include="Arquivos\FEN_NATUREZA\x0008.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0012.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0019.FEN_NATUREZA" />
-    <None Include="Arquivos\FEN_NATUREZA\x0020.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\FEN_NATUREZA\x0021.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0022.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0023.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0024.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0043.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0045.FEN_NATUREZA.FRUTA_TROPICAL" />
-    <None Include="Arquivos\FEN_NATUREZA\x0073.FEN_NATUREZA.ANIMAL_DOMESTICO" />
-    <None Include="Arquivos\FEN_NATUREZA\x0074.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\FEN_NATUREZA\x0078.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0095.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0108.FEN_NATUREZA" />
@@ -259,7 +246,6 @@
     <None Include="Arquivos\FEN_NATUREZA\x0462.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0501.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0541.FEN_NATUREZA" />
-    <None Include="Arquivos\FEN_NATUREZA\x0697.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\FEN_NATUREZA\x0700.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x0701.FEN_NATUREZA.AUMENTO_SALARIO" />
     <None Include="Arquivos\FEN_NATUREZA\x0716.FEN_NATUREZA" />
@@ -296,13 +282,11 @@
     <None Include="Arquivos\FEN_NATUREZA\x4592.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x4597.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x4601.FEN_NATUREZA" />
-    <None Include="Arquivos\FEN_NATUREZA\x4705.FEN_NATUREZA.ANIMAL_DOMESTICO" />
     <None Include="Arquivos\FEN_NATUREZA\x4751.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x4775.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x4778.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x4783.FEN_NATUREZA" />
     <None Include="Arquivos\FEN_NATUREZA\x4784.FEN_NATUREZA.ALUGUEL_IMOVEL" />
-    <None Include="Arquivos\MUSICA_BRASILEIRA\x0029.ANIMAL_DOMESTICO.MUSICA_BRASILEIRA" />
     <None Include="Arquivos\MUSICA_BRASILEIRA\x0102.MUSICA_BRASILEIRA" />
     <None Include="Arquivos\MUSICA_BRASILEIRA\x0334.ACID_AUTO.MUSICA_BRASILEIRA" />
     <None Include="Arquivos\MUSICA_BRASILEIRA\x0364.MUSICA_BRASILEIRA" />
