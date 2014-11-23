@@ -10,7 +10,7 @@ namespace Main
             var stopWords = File.ReadAllText(AppConfig.FilesPath + @"\lista de stopwords Portugues.txt");
 
             var processing = new Processing(stopWords);
-            processing.FillSubjects(AppConfig.FilesPath);
+            processing.getTexts(AppConfig.FilesPath);
             processing.Preprocessing();
 
             Console.ReadKey();

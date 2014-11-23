@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sets.cs" />
     <Compile Include="Subject.cs" />
+    <Compile Include="Text.cs" />
     <Compile Include="Word.cs" />
   </ItemGroup>
   <ItemGroup>
