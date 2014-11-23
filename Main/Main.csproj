@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E47DF2ED-8240-4BA1-8E27-ECD3F0027647}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>Main</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BagOfWord.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sets.cs" />
+    <Compile Include="Subject.cs" />
+    <Compile Include="Word.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0009.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0010.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0011.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0020.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0026.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0027.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0028.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0029.ANIMAL_DOMESTICO.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0030.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0042.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0052.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0063.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0064.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0066.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0068.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0070.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0071.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0073.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0074.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0079.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0080.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0081.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0082.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0083.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0084.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0087.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0088.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0089.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0090.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0097.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0099.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0100.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0105.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0116.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0117.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0118.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0119.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0124.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0125.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0289.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0365.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0534.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x0697.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x1749.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x2556.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x2608.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x2674.PROFUNIV.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3218.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3232.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3462.ANIMAL_DOMESTICO.VIAGEM_INTERNAC" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3515.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3802.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3888.PROFUNIV.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x3934.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x4394.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x4471.ANIMAL_DOMESTICO.VIAGEM_INTERNAC" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x4705.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x4781.PROFUNIV.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\ANIMAL_DOMESTICO\x4884.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0126.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0194.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0224.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0258.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0261.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0437.TRAF_DROGAS.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x0438.ENSINO.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1044.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1045.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1046.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1053.APOSENTADORIA.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1057.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1061.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1066.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1067.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1072.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1073.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1086.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1088.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1093.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1095.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1099.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1104.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1114.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1117.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1118.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1119.ALUGUEL_IMOVEL.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1129.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1131.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1132.ENSINO.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1164.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1170.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1179.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1186.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1194.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1195.PROFUNIV.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x1958.ENSINO.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x2270.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x2785.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x2789.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x2790.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x2911.PROFUNIV.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3123.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3124.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3154.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3160.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3362.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3368.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3411.PROFUNIV.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3412.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3441.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3546.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3548.CAMP_ELEITORAL.DOENÇA_GRAVE" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3569.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3588.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3851.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x3974.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x4087.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x4097.CAMP_ELEITORAL" />
+    <None Include="Arquivos\CAMP_ELEITORAL\x4314.CAMP_ELEITORAL" />
+    <None Include="Arquivos\ENSINO\x0308.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0311.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0345.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0375.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0408.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0411.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0438.ENSINO.CAMP_ELEITORAL" />
+    <None Include="Arquivos\ENSINO\x0461.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0464.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0485.ENSINO.ALUGUEL_IMOVEL" />
+    <None Include="Arquivos\ENSINO\x0486.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0487.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0488.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0489.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0550.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0552.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0565.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0600.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0627.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0630.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0635.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0655.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0665.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0667.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0669.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0728.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0828.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0837.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0846.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0851.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0857.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0875.ENSINO" />
+    <None Include="Arquivos\ENSINO\x0978.ENSINO" />
+    <None Include="Arquivos\ENSINO\x1132.ENSINO.CAMP_ELEITORAL" />
+    <None Include="Arquivos\ENSINO\x1583.ENSINO" />
+    <None Include="Arquivos\ENSINO\x1807.ENSINO" />
+    <None Include="Arquivos\ENSINO\x1958.ENSINO.CAMP_ELEITORAL" />
+    <None Include="Arquivos\ENSINO\x2292.ENSINO" />
+    <None Include="Arquivos\ENSINO\x2297.ENSINO.USO_COMPUTADOR" />
+    <None Include="Arquivos\ENSINO\x2301.ENSINO.USO_COMPUTADOR" />
+    <None Include="Arquivos\ENSINO\x2391.ENSINO.USO_COMPUTADOR" />
+    <None Include="Arquivos\ENSINO\x2725.ENSINO" />
+    <None Include="Arquivos\ENSINO\x2803.ENSINO" />
+    <None Include="Arquivos\ENSINO\x2980.ENSINO" />
+    <None Include="Arquivos\ENSINO\x2998.ENSINO" />
+    <None Include="Arquivos\ENSINO\x3052.ENSINO" />
+    <None Include="Arquivos\ENSINO\x3084.ENSINO.DOENÇA_GRAVE" />
+    <None Include="Arquivos\ENSINO\x3115.ENSINO" />
+    <None Include="Arquivos\ENSINO\x3632.ENSINO" />
+    <None Include="Arquivos\ENSINO\x3651.ENSINO.TRAF_DROGAS" />
+    <None Include="Arquivos\ENSINO\x3890.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4089.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4106.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4111.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4153.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4165.ENSINO.AUMENTO_SALARIO" />
+    <None Include="Arquivos\ENSINO\x4197.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4219.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4220.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4290.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4295.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4296.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4805.ENSINO" />
+    <None Include="Arquivos\ENSINO\x4933.ENSINO" />
+    <None Include="Arquivos\ENSINO\x5038.ENSINO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0008.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0012.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0019.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0020.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0021.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0022.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0023.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0024.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0043.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0045.FEN_NATUREZA.FRUTA_TROPICAL" />
+    <None Include="Arquivos\FEN_NATUREZA\x0073.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0074.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0078.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0095.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0108.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0113.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0130.FEN_NATUREZA.AUMENTO_SALARIO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0155.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0302.TRAF_DROGAS.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0330.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0350.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0462.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0501.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0541.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0697.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0700.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0701.FEN_NATUREZA.AUMENTO_SALARIO" />
+    <None Include="Arquivos\FEN_NATUREZA\x0716.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0761.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x0769.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x1289.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x1504.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x1668.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x1831.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2491.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2514.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2706.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2752.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2755.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2838.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2881.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x2957.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3276.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3307.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3312.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3336.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3479.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3592.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3933.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x3993.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4102.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4161.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4453.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4513.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4531.VIAGEM_AERO.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4535.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4536.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4577.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4592.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4597.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4601.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4705.FEN_NATUREZA.ANIMAL_DOMESTICO" />
+    <None Include="Arquivos\FEN_NATUREZA\x4751.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4775.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4778.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4783.FEN_NATUREZA" />
+    <None Include="Arquivos\FEN_NATUREZA\x4784.FEN_NATUREZA.ALUGUEL_IMOVEL" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x0029.ANIMAL_DOMESTICO.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x0102.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x0334.ACID_AUTO.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x0364.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x0382.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x0993.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1263.MUSICA_BRASILEIRA.FRUTA_TROPICAL" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1633.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1639.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1648.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1715.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1825.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1851.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1873.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1883.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1898.MUSICA_BRASILEIRA.VIAGEM_INTERNAC" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1899.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1905.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1929.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1956.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1957.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x1978.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2017.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2018.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2050.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2052.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2060.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2699.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2771.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2772.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2773.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2777.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2794.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x2808.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3028.MUSICA_BRASILEIRA.DOENÇA_GRAVE" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3126.PROFUNIV.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3280.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3590.APOSENTADORIA.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3702.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3704.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3759.PROFUNIV.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3760.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3843.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3902.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3926.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3927.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3961.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x3984.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4042.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4050.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4065.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4067.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4069.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4075.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4103.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4105.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4144.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4162.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4203.MUSICA_BRASILEIRA.DOENÇA_GRAVE" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4269.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4306.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4627.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4779.PROFUNIV.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4809.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4822.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4848.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4916.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4917.MUSICA_BRASILEIRA" />
+    <None Include="Arquivos\MUSICA_BRASILEIRA\x4921.MUSICA_BRASILEIRA" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Arquivos\lista de stopwords Portugues.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
