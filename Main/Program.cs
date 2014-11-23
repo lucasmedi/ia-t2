@@ -7,11 +7,11 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            var stopWords = File.ReadAllText(AppConfig.FilesPath + @"\lista de stopwords Portugues.txt");
+            var stopWords = File.ReadAllText(FolderHelper.FilesPath + @"\stopwords.txt");
 
             var processing = new Processing(stopWords);
-            processing.getTexts(AppConfig.FilesPath);
-            processing.Preprocessing();
+            processing.getTexts(Folder.Originais);
+            var bag = processing.Preprocessing();
 
             Console.ReadKey();
         }

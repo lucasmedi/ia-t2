@@ -7,56 +7,44 @@ namespace Main
 {
     public class Processing
     {
-        List<Subject> subjects = new List<Subject>();
-        List<Text> Texts = new List<Text>();
-        string StopWords;
+        private List<Subject> subjects;
+        private string stopWords;
 
         public Processing()
         {
-            subjects = new List<Subject>();
+            this.subjects = new List<Subject>();
         }
 
         public Processing(string stopWords)
         {
-            subjects = new List<Subject>();
-            StopWords = stopWords;
+            this.subjects = new List<Subject>();
+            this.stopWords = stopWords;
         }
 
-        public void getTexts(string root)
+        public void getTexts(Folder op)
         {
-            DirectoryInfo directoryRoot = new DirectoryInfo(root);
-            Console.WriteLine("" + directoryRoot.GetDirectories().Length);
-            directoryRoot.GetDirectories()
+            FolderHelper.GetDirectories(op)
                 .ToList()
                 .ForEach(x =>
                 {
-                    x.GetFiles().ToList().ForEach(f => Texts.Add(new Text().CreateText(f)));
-                    subjects.Add(new Subject(x.Name, Texts));
-                    Texts = new List<Text>();
+                    var texts = new List<Text>();
+                    x.GetFiles().ToList().ForEach(f => texts.Add(new Text(f)));
+                    subjects.Add(new Subject(x.Name, texts));
                 });
         }
 
-        //public void FillSubjects(string root)
-        //{
-        //    DirectoryInfo directoryRoot = new DirectoryInfo(root);
-        //    Console.WriteLine("" + directoryRoot.GetDirectories().Length);
-        //    directoryRoot.GetDirectories()
-        //        .ToList()
-        //        .ForEach(x => subjects.Add(Subject.CreateSubject(x)));
-        //}
-
         public BagOfWord Preprocessing()
         {
-            List<Word> words = new List<Word>();
+            var words = new List<Word>();
             subjects.ForEach(x =>
             {
-                x.RemoveStopWords(StopWords);
+                x.RemoveStopWords(stopWords);
                 x.RemoveSpecialCharacters();
                 x.RemoveNumbers();
                 x.RemoveOther();
+                x.SaveFiles();
 
                 x.CalculateTraningAndTest();
-
                 x.GenerateOwnBagOfWords();
 
                 words.AddRange(x.Words);
@@ -67,12 +55,12 @@ namespace Main
 
         public BagOfWord GenerateBagOfWords(List<Word> words)
         {
-            var Words = words.GroupBy(x => x.Name)
+            var res = words.GroupBy(x => x.Name)
                 .Select(x => new Word(x.Key, (int)x.Sum(w => w.Frequency)))
                 .OrderByDescending(x => x.Frequency)
                 .ToList<Word>();
 
-            return new BagOfWord(words);
+            return new BagOfWord(res);
         }
     }
 }
