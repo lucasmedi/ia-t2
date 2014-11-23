@@ -45,9 +45,17 @@ namespace Main
                 words.AddRange(x.Words);
             });
 
-            return null;
+            return GenerateBagOfWords(words);
         }
 
-        //public void removeRepeat
+        public BagOfWord GenerateBagOfWords(List<Word> words)
+        {
+            var Words = words.GroupBy(x => x.Name)
+                .Select(x => new Word(x.Key, (int)x.Sum(w => w.Frequency)))
+                .OrderByDescending(x => x.Frequency)
+                .ToList<Word>();
+
+            return new BagOfWord(words);
+        }
     }
 }
