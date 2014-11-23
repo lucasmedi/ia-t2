@@ -1,28 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace Main
+
+namespace tf_ia_geradorarquivoweka
 {
-    public class Subject
+    class Subject
     {
-        public string Text { get; set; }
-        public string TrainingText { get; set; }
-        public string TestText { get; set; }
-        public List<string> Texts { get; set; }
-        public List<string> TrainingTexts { get; set; }
-        public List<string> TestTexts { get; set; }
-        public BagOfWord BagOfWord { get; set; }
+        string TrainingText { get; set; }
+        string TestText { get; set; }
+        List<string> Texts { get; set; }
+        List<string> TrainingTexts { get; set; }
+        List<string> TestTexts { get; set; }
+        public List<Word> Words { get; set; }
+        static string StopWords;
 
         public Subject() { }
 
-        public Subject(string text)
+        public Subject(string stopWords)
         {
-            Text = text;
+            StopWords = stopWords;
         }
 
         public Subject(string trainingText, string testText)
@@ -35,7 +37,7 @@ namespace Main
             FillTextList(testText, TestTexts);
         }
 
-        public static Subject GetSubject(DirectoryInfo dir)
+        public static Subject CreateSubject(DirectoryInfo dir)
         {
             var trainingText = new StringBuilder();
             var testText = new StringBuilder();
@@ -54,68 +56,70 @@ namespace Main
             return new Subject(trainingText.ToString(), testText.ToString());
         }
 
+
+        //ACHAR UM NOME MELHOR
+        public void GenerateOwnBagOfWords()
+        {
+            Words = TrainingTexts.GroupBy(x => x.ToUpper()).Select(x => new Word(x.Key, x.Count())).OrderByDescending(x => x.Frequency).ToList<Word>().Take((int)Sets.FEATURESRANKING).ToList();
+        }
+
         public void RemoveStopWords(string stopWord)
         {
-            var stringSeparators = new string[] { "\n", "\r" };
-            var stopWords = stopWord.Split(stringSeparators, StringSplitOptions.None).ToList<string>();
-            Console.WriteLine("TRAIN: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST: " + TestTexts.ToArray().Length);
+            string[] stringSeparators = new string[] { "\n", "\r" };
+            List<string> stopWords = stopWord.Split(stringSeparators, StringSplitOptions.None).ToList<string>();
+            Debug.Print("TRAIN: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST: " + TestTexts.ToArray().Length);
+
 
             stopWords.ForEach(x =>
-            {
-                TrainingTexts
-                    .RemoveAll(tr => x.Equals(tr, StringComparison.InvariantCultureIgnoreCase));
-                TestTexts
-                    .RemoveAll(te => x.Equals(te, StringComparison.InvariantCultureIgnoreCase));
-            });
+                                {
+                                    TrainingTexts
+                                        .RemoveAll(tr => x.Equals(tr, StringComparison.InvariantCultureIgnoreCase));
+                                    TestTexts
+                                        .RemoveAll(te => x.Equals(te, StringComparison.InvariantCultureIgnoreCase));
+                                });
 
-            Console.WriteLine("TRAIN2: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST2: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN2: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST2: " + TestTexts.ToArray().Length);
         }
 
         public void RemoveNumbers()
         {
-            Console.WriteLine("TRAIN3: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST3: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN3: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST3: " + TestTexts.ToArray().Length);
 
             TrainingTexts.RemoveAll(tr => Regex.IsMatch(tr, @"[\d-]"));
             TestTexts.RemoveAll(te => Regex.IsMatch(te, @"[\d-]"));
 
-            Console.WriteLine("TRAIN4: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST4: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN4: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST4: " + TestTexts.ToArray().Length);
         }
 
         public void RemoveSpecialCharacters()
         {
-            Console.WriteLine("TRAIN5: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST5: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN5: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST5: " + TestTexts.ToArray().Length);
 
             TrainingTexts.RemoveAll(tr => Regex.IsMatch(tr, @"[^0-9a-zA-Z]+"));
             TestTexts.RemoveAll(te => Regex.IsMatch(te, @"[^0-9a-zA-Z]+"));
 
-            Console.WriteLine("TRAIN6: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST6: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN6: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST6: " + TestTexts.ToArray().Length);
         }
 
         public void RemoveOther()
         {
-            Console.WriteLine("TRAIN7: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST7: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN7: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST7: " + TestTexts.ToArray().Length);
 
             TrainingTexts.RemoveAll(tr => tr.Length < 2);
             TestTexts.RemoveAll(te => te.Length < 2);
 
-            Console.WriteLine("TRAIN8: " + TrainingTexts.ToArray().Length);
-            Console.WriteLine("TEST8: " + TestTexts.ToArray().Length);
+            Debug.Print("TRAIN8: " + TrainingTexts.ToArray().Length);
+            Debug.Print("TEST8: " + TestTexts.ToArray().Length);
         }
 
-        public void GenerateBagOfWords()
-        {
-            var frequencies = TrainingTexts.GroupBy(x => x.ToUpper()).Select(x => new Word(x.Key, x.Count())).OrderByDescending(x => x.Frequency).ToList<Word>();
-            BagOfWord = new BagOfWord(frequencies);
-        }
-
-        #region Private Methods
+        #region privates methods
 
         private static int CalculatePercentage(int value, Sets sets)
         {
@@ -131,5 +135,6 @@ namespace Main
         }
 
         #endregion
+
     }
 }

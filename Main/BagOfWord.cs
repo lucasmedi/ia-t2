@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
-namespace Main
+namespace tf_ia_geradorarquivoweka
 {
-    public class BagOfWord
+    class BagOfWord
     {
         public List<Word> Words = new List<Word>();
 
@@ -15,6 +16,7 @@ namespace Main
             Words = words;
         }
 
+
         public void GetWords(string value)
         {
             string[] stringSeparators = new string[] { "\n", "\r" };
@@ -22,5 +24,6 @@ namespace Main
                 .ToList<String>()
                 .ForEach(x => Words.Add(new Word(x)));
         }
+
     }
 }

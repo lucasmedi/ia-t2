@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-namespace Main
+namespace tf_ia_geradorarquivoweka
 {
     class Program
     {
-        static string root = @"\Arquivos";
+
+        static string root = @"C:\Users\Giovanni_2\Dropbox\PUCRS\Inteligência Artificial\t2\Arquivos";
 
         static void Main(string[] args)
         {
-            string stopWord = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + root + @"\lista de stopwords Portugues.txt");
+            string stopWord = File.ReadAllText(root + @"\lista de stopwords Portugues.txt");
 
-            var subjects = new List<Subject>();
+            Processing processing = new Processing(stopWord);
 
-            var directoryRoot = new DirectoryInfo(root);
-            Console.WriteLine(directoryRoot.GetDirectories().Length.ToString());
-            directoryRoot.GetDirectories()
-                .ToList()
-                .ForEach(x => subjects.Add(Subject.GetSubject(x)));
+            processing.FillSubjects(root);
 
-            subjects.First().RemoveStopWords(stopWord);
-            subjects.First().RemoveNumbers();
-            subjects.First().RemoveSpecialCharacters();
-            subjects.First().RemoveOther();
-
-            //subjects.First().test();
+            processing.Preprocessing();
         }
+
+       
     }
 }
