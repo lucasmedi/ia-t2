@@ -9,14 +9,9 @@ namespace Main
     {
         public string Name { get; set; }
 
-        static string StopWords;
+        public List<Word> Ranking { get; set; }
 
-        string TrainingText { get; set; }
-        string TestText { get; set; }
-
-        public List<Word> Words { get; set; }//TROCAR O NOME, ESTA EH A LISTA DOS COM MAIOR FREQUENCIA
         public List<Text> Texts { get; set; }
-
         public List<Text> TrainingTexts { get; set; }
         public List<Text> TestTexts { get; set; }
 
@@ -30,20 +25,17 @@ namespace Main
         {
             TrainingTexts.ForEach(t =>
                 {
-                    Words = t.Words.GroupBy(x => x.ToUpper())
-                    .Select(x => new Word(x.Key, x.Count()))
-                    .OrderByDescending(x => x.Frequency)
-                    .ToList<Word>()
-                    .Take(AppConfig.FeatureRanking).ToList();
+                    Ranking = t.Words.GroupBy(x => x.ToLower())
+                        .Select(x => new Word(x.Key, x.Count()))
+                        .OrderByDescending(x => x.Frequency)
+                        .ToList<Word>()
+                        .Take(AppConfig.FeatureRanking).ToList();
                 }
             );
         }
 
-        public void RemoveStopWords(string stopWord)
+        public void RemoveStopWords(List<string> stopWords)
         {
-            var stringSeparators = new string[] { "\n", "\r" };
-            var stopWords = stopWord.Split(stringSeparators, StringSplitOptions.None).ToList<string>();
-            
             stopWords.ForEach(x =>
                 {
                     Texts.ForEach(t => t.Words.RemoveAll(w => x.Equals(w, StringComparison.InvariantCultureIgnoreCase)));
@@ -101,14 +93,6 @@ namespace Main
         private static int CalculatePercentage(int value, Set sets)
         {
             return (value * (int)sets) / 100;
-        }
-
-        private void FillTextList(string value, List<string> list)
-        {
-            string[] stringSeparators = new string[] { "\n", "\r" };
-            value.Split(stringSeparators, StringSplitOptions.None)
-                .ToList<String>()
-                .ForEach(x => list.Add(x));
         }
 
         #endregion

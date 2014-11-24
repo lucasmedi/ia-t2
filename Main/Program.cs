@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Main
 {
@@ -9,12 +8,13 @@ namespace Main
         {
             Console.WriteLine("***** Início *****");
 
-            var stopWords = File.ReadAllText(FolderHelper.ArquivosPath + @"\stopwords.txt");
-
-            var processing = new Processing(stopWords);
-            processing.getTexts(Folder.Originais);
+            // Pre-processamento
+            var processing = new Processing();
+            processing.LoadStopwords();
+            processing.LoadTexts(Folder.Originais);
             var bag = processing.Preprocessing();
 
+            // Criação do .ARFF
             Arff arff = null;
             var date = DateTime.Now;
 
@@ -29,7 +29,7 @@ namespace Main
             Console.WriteLine("OK");
 
             Console.WriteLine("***** Fim *****");
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

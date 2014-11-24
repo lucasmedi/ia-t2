@@ -10,6 +10,7 @@ namespace Main
         {
             Name = name;
         }
+
         public Word(string name, int frequency)
         {
             Name = name;

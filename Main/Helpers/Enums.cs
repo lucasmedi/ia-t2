@@ -11,6 +11,7 @@ namespace Main
     {
         Arquivos,
         Originais,
-        Preprocessados
+        Preprocessados,
+        Gerados
     }
 }

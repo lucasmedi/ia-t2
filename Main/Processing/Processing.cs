@@ -1,28 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace Main
 {
     public class Processing
     {
-        public List<Subject> Subjects { get; set; }
+        private List<string> stopWords;
 
-        private string stopWords;
+        public List<Subject> Subjects { get; set; }
 
         public Processing()
         {
             this.Subjects = new List<Subject>();
+            this.stopWords = new List<string>();
         }
 
-        public Processing(string stopWords)
+        /// <summary>
+        /// Loads stopwords file
+        /// </summary>
+        public void LoadStopwords()
         {
-            this.Subjects = new List<Subject>();
-            this.stopWords = stopWords;
+            using (var stream = FolderHelper.ReadFile(Folder.Arquivos, "stopwords.txt"))
+            {
+                while (!stream.EndOfStream)
+                {
+                    stopWords.Add(stream.ReadLine());
+                }
+
+                stream.Close();
+            }
         }
 
-        public void getTexts(Folder op)
+        /// <summary>
+        /// Loads subjects and each text
+        /// </summary>
+        /// <param name="op">Wich directory to search for subjects and texts</param>
+        public void LoadTexts(Folder op)
         {
             FolderHelper.GetDirectories(op)
                 .ToList()
@@ -34,12 +48,16 @@ namespace Main
                 });
         }
 
+        /// <summary>
+        /// Executes de preprocessing step
+        /// </summary>
+        /// <returns></returns>
         public BagOfWord Preprocessing()
         {
             var words = new List<Word>();
             Subjects.ForEach(x =>
             {
-                Console.WriteLine("Preprocessando arquivo {0}:", x.Name);
+                Console.WriteLine("Pre-processando arquivos de {0}:", x.Name);
                 Console.Write("    Limpar arquivos: ");
                 // Limpa arquivos
                 x.RemoveStopWords(stopWords);
@@ -62,12 +80,17 @@ namespace Main
                 x.GenerateOwnBagOfWords();
                 Console.WriteLine("OK");
 
-                words.AddRange(x.Words);
+                words.AddRange(x.Ranking);
             });
 
             return GenerateBagOfWords(words);
         }
 
+        /// <summary>
+        /// Creates the bag of words with the most found letters
+        /// </summary>
+        /// <param name="words"></param>
+        /// <returns></returns>
         public BagOfWord GenerateBagOfWords(List<Word> words)
         {
             Console.Write("Gerar bag of words geral: ");

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Main
 {
@@ -19,24 +18,27 @@ namespace Main
 
         public void CreateFile(DateTime date, Set op)
         {
-            var directory = FolderHelper.GetDirectory(Folder.Arquivos);
-            var fileName = string.Format("{0}{1}{2}{3}{4}{5}_{6}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, (op == Set.TRAINING ? "1-treino" : "2-teste"));
+            var directory = FolderHelper.GetDirectory(Folder.Gerados);
+            var fileName = (op == Set.TRAINING ? "1-treino" : "2-teste");
             var file = FolderHelper.CreateFile(directory, fileName + ".arff");
 
             // @relation <NomeDoArquivo>
-            file.Write("@relation <{0}> \n", fileName);
+            file.WriteLine("@relation <{0}> \n", fileName);
 
             foreach (var word in bag.Words)
             {
                 // @attribute <palavraDaBagOfWord_N> integer
-                file.Write("@attribute <{0}> integer \n", word.Name);
+                file.WriteLine("@attribute <{0}> integer", word.Name);
             }
 
             // @attribute classes {assunto1,assunto2,assunto3,assunto4,assunto5}
-            file.Write("@attribute classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}\n");
+            file.WriteLine("@attribute classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}");
+
+            // Linha em branco
+            file.WriteLine();
 
             // @data
-            file.Write("\n\n@data\n");
+            file.WriteLine("@data");
 
             // 0, 1, 0, 0, 0, 1, …, assunto1
             // 0, 0, 1, 0, 0, 0, …, assunto1
@@ -56,17 +58,18 @@ namespace Main
 
                 foreach (var text in texts)
                 {
-                    foreach (var word in text.Words)
-                    {
-                        if (string.IsNullOrEmpty(word))
-                        {
-                            continue;
-                        }
+                    var str = new StringBuilder();
 
-                        file.Write((bag.Words.Any(o => o.Name.ToUpper() == word.ToUpper()) ? 1 : 0) + ",");
+                    foreach (var word in bag.Words)
+                    {
+                        str.Append((text.Words.Any(o => o.ToUpper() == word.Name.ToUpper()) ? 1 : 0) + ",");
                     }
 
-                    file.Write(subject.Name+"\n");
+                    if (str.Length != 0)
+                    {
+                        file.Write(str.ToString());
+                        file.WriteLine(subject.Name);
+                    }
                 }
             }
 

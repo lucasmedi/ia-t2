@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Main
 {
@@ -11,14 +9,6 @@ namespace Main
         public BagOfWord(List<Word> words)
         {
             this.Words = words;
-        }
-
-        public void GetWords(string value)
-        {
-            string[] stringSeparators = new string[] { "\n", "\r" };
-            value.Split(stringSeparators, StringSplitOptions.None)
-                .ToList<String>()
-                .ForEach(x => Words.Add(new Word(x)));
         }
     }
 }

@@ -363,6 +363,7 @@
     <Content Include="Arquivos\stopwords.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Arquivos\gerados\" />
     <Folder Include="Arquivos\preprocessados\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

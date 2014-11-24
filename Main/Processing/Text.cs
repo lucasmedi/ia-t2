@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace Main
 {
@@ -14,7 +12,8 @@ namespace Main
         {
             this.FileName = file.Name;
             this.Words = new List<string>();
-            FillTextList(File.ReadAllText(file.FullName), this.Words);
+
+            FillTextList(file);
         }
 
         public Text(string label, List<string> words)
@@ -23,12 +22,15 @@ namespace Main
             this.Words = words;
         }
 
-        private static void FillTextList(string value, List<string> list)
+        private void FillTextList(FileInfo file)
         {
-            string[] stringSeparators = new string[] { "\n", "\r" };
-            value.Split(stringSeparators, StringSplitOptions.None)
-                .ToList<String>()
-                .ForEach(x => list.Add(x));
+            using (var stream = file.OpenText())
+            {
+                while (!stream.EndOfStream)
+                {
+                    Words.Add(stream.ReadLine());
+                }
+            }
         }
     }
 }

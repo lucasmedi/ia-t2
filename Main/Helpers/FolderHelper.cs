@@ -29,7 +29,7 @@ namespace Main
         {
             get
             {
-                return ArquivosPath + @"\Originais";
+                return ArquivosPath + @"\originais";
             }
         }
 
@@ -37,7 +37,15 @@ namespace Main
         {
             get
             {
-                return ArquivosPath + @"\Preprocessados";
+                return ArquivosPath + @"\preprocessados";
+            }
+        }
+
+        public static string GeradosPath
+        {
+            get
+            {
+                return ArquivosPath + @"\gerados";
             }
         }
 
@@ -75,6 +83,11 @@ namespace Main
             return File.CreateText(directory.FullName + @"\" + name);
         }
 
+        public static StreamReader ReadFile(Folder op, string name)
+        {
+            return File.OpenText(GetPath(op) + @"\" + name);
+        }
+
         public static void CreateFile(DirectoryInfo directory, string name, List<string> content)
         {
             using (var sw = File.CreateText(directory.FullName + @"\" + name))
@@ -99,6 +112,9 @@ namespace Main
                     break;
                 case Folder.Preprocessados:
                     path = PreprocessadosPath;
+                    break;
+                case Folder.Gerados:
+                    path = GeradosPath;
                     break;
             }
 
