@@ -7,17 +7,18 @@ namespace Main
 {
     public class Processing
     {
-        private List<Subject> subjects;
+        public List<Subject> Subjects { get; set; }
+
         private string stopWords;
 
         public Processing()
         {
-            this.subjects = new List<Subject>();
+            this.Subjects = new List<Subject>();
         }
 
         public Processing(string stopWords)
         {
-            this.subjects = new List<Subject>();
+            this.Subjects = new List<Subject>();
             this.stopWords = stopWords;
         }
 
@@ -29,19 +30,14 @@ namespace Main
                 {
                     var texts = new List<Text>();
                     x.GetFiles().ToList().ForEach(f => texts.Add(new Text(f)));
-                    subjects.Add(new Subject(x.Name, texts));
+                    Subjects.Add(new Subject(x.Name, texts));
                 });
-        }
-
-        public List<string> GetSubjects()
-        {
-            return subjects.Select(o => o.Name).ToList();
         }
 
         public BagOfWord Preprocessing()
         {
             var words = new List<Word>();
-            subjects.ForEach(x =>
+            Subjects.ForEach(x =>
             {
                 Console.WriteLine("Preprocessando arquivo {0}:", x.Name);
                 Console.Write("    Limpar arquivos: ");

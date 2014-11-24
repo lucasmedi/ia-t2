@@ -17,8 +17,8 @@ namespace Main
         public List<Word> Words { get; set; }//TROCAR O NOME, ESTA EH A LISTA DOS COM MAIOR FREQUENCIA
         public List<Text> Texts { get; set; }
 
-        List<Text> TrainingTexts { get; set; }
-        List<Text> TestTexts { get; set; }
+        public List<Text> TrainingTexts { get; set; }
+        public List<Text> TestTexts { get; set; }
 
         public Subject(string name, List<Text> texts)
         {
@@ -75,7 +75,7 @@ namespace Main
         {
             TrainingTexts = new List<Text>();
             TestTexts = new List<Text>();
-            int amountFilesTraining = CalculatePercentage(Texts.Count, Sets.TRAINING);
+            int amountFilesTraining = CalculatePercentage(Texts.Count, Set.TRAINING);
             for (int i = 0; i < amountFilesTraining; i++)
             {
                 TrainingTexts.Add(Texts[i]);
@@ -98,7 +98,7 @@ namespace Main
 
         #region Private Methods
 
-        private static int CalculatePercentage(int value, Sets sets)
+        private static int CalculatePercentage(int value, Set sets)
         {
             return (value * (int)sets) / 100;
         }

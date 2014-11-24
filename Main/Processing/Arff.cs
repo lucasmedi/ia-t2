@@ -8,20 +8,19 @@ namespace Main
 {
     public class Arff
     {
-        private List<string> subjects;
+        private List<Subject> subjects;
         private BagOfWord bag;
 
-        public Arff(List<string> subjects, BagOfWord bag)
+        public Arff(List<Subject> subjects, BagOfWord bag)
         {
             this.subjects = subjects;
             this.bag = bag;
         }
 
-        public void CreateFile()
+        public void CreateFile(DateTime date, Set op)
         {
-            var date = DateTime.Now;
             var directory = FolderHelper.GetDirectory(Folder.Arquivos);
-            var fileName = string.Format("treino_{0}{1}{2}{3}{4}{5}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+            var fileName = string.Format("{0}{1}{2}{3}{4}{5}_{6}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, (op == Set.TRAINING ? "1-treino" : "2-teste"));
             var file = FolderHelper.CreateFile(directory, fileName + ".arff");
 
             // @relation <NomeDoArquivo>
@@ -34,7 +33,7 @@ namespace Main
             }
 
             // @attribute classes {assunto1,assunto2,assunto3,assunto4,assunto5}
-            file.WriteLine("@attributes classes {" + string.Join(",", subjects) + "}");
+            file.WriteLine("@attributes classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}");
 
             // @data
             file.WriteLine("@data");
@@ -42,26 +41,32 @@ namespace Main
             // 0, 1, 0, 0, 0, 1, …, assunto1
             // 0, 0, 1, 0, 0, 0, …, assunto1
             // 1, 0, 1, 0, 0, 0, …, assunto5
-            var directories = FolderHelper.GetDirectories(Folder.Preprocessados);
-            foreach (var d in directories)
+            foreach (var subject in subjects)
             {
-                foreach (var f in d.GetFiles())
+                List<Text> texts = null;
+                switch (op)
                 {
-                    using (var t = f.OpenText())
-                    {
-                        while (!t.EndOfStream)
-                        {
-                            var text = t.ReadLine();
-                            if (string.IsNullOrEmpty(text))
-                            {
-                                continue;
-                            }
+                    case Set.TRAINING:
+                        texts = subject.TrainingTexts;
+                        break;
+                    case Set.TEST:
+                        texts = subject.TestTexts;
+                        break;
+                }
 
-                            file.Write((bag.Words.Any(o => o.Name.ToUpper() == text.ToUpper()) ? 1 : 0) + ", ");
+                foreach (var text in texts)
+                {
+                    foreach (var word in text.Words)
+                    {
+                        if (string.IsNullOrEmpty(word))
+                        {
+                            continue;
                         }
+
+                        file.Write((bag.Words.Any(o => o.Name.ToUpper() == word.ToUpper()) ? 1 : 0) + ", ");
                     }
 
-                    file.WriteLine(d.Name);
+                    file.WriteLine(subject.Name);
                 }
             }
 

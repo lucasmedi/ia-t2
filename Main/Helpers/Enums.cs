@@ -1,7 +1,7 @@
 ﻿
 namespace Main
 {
-    public enum Sets
+    public enum Set
     {
         TRAINING = 80,
         TEST = 20
