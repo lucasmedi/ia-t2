@@ -33,7 +33,7 @@ namespace Main
             }
 
             // @attribute classes {assunto1,assunto2,assunto3,assunto4,assunto5}
-            file.WriteLine("@attributes classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}");
+            file.WriteLine("@attribute classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}");
 
             // @data
             file.WriteLine("@data");
