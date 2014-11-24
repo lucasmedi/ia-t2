@@ -24,19 +24,19 @@ namespace Main
             var file = FolderHelper.CreateFile(directory, fileName + ".arff");
 
             // @relation <NomeDoArquivo>
-            file.WriteLine("@relation {0}", fileName);
+            file.Write("@relation <{0}> \n", fileName);
 
             foreach (var word in bag.Words)
             {
                 // @attribute <palavraDaBagOfWord_N> integer
-                file.WriteLine("@attribute {0} string", word.Name);
+                file.Write("@attribute <{0}> integer \n", word.Name);
             }
 
             // @attribute classes {assunto1,assunto2,assunto3,assunto4,assunto5}
-            file.WriteLine("@attribute classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}");
+            file.Write("@attribute classes {" + string.Join(",", subjects.Select(o => o.Name).ToList()) + "}\n");
 
             // @data
-            file.WriteLine("@data");
+            file.Write("\n\n@data\n");
 
             // 0, 1, 0, 0, 0, 1, …, assunto1
             // 0, 0, 1, 0, 0, 0, …, assunto1
@@ -63,10 +63,10 @@ namespace Main
                             continue;
                         }
 
-                        file.Write((bag.Words.Any(o => o.Name.ToUpper() == word.ToUpper()) ? 1 : 0) + ", ");
+                        file.Write((bag.Words.Any(o => o.Name.ToUpper() == word.ToUpper()) ? 1 : 0) + ",");
                     }
 
-                    file.WriteLine(subject.Name);
+                    file.Write(subject.Name+"\n");
                 }
             }
 
