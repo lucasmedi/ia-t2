@@ -12,6 +12,7 @@ namespace Main
         public List<Word> Ranking { get; set; }
 
         public List<Text> Texts { get; set; }
+
         public List<Text> TrainingTexts { get; set; }
         public List<Text> TestTexts { get; set; }
 

@@ -55,9 +55,10 @@ namespace Main
         public BagOfWord Preprocessing()
         {
             var words = new List<Word>();
+
             Subjects.ForEach(x =>
             {
-                Console.WriteLine("Pre-processando arquivos de {0}:", x.Name);
+                Console.WriteLine("> {0} - Pre-processando arquivos:", x.Name);
                 Console.Write("    Limpar arquivos: ");
                 // Limpa arquivos
                 x.RemoveStopWords(stopWords);
@@ -67,15 +68,13 @@ namespace Main
                 x.RemoveEmpty();
                 Console.WriteLine("OK");
 
-                Console.Write("    Salvar arquivos limpos: ");
-                // Salva arquivos limpos
+                Console.Write("    {0} - Salvar arquivos limpos: ", x.Name);
                 x.SaveFiles();
                 Console.WriteLine("OK");
 
+                Console.Write("    {0} - Dividir arquivos e gerar Bag of Words: ", x.Name);
                 // Separa arquivos de treino e teste
                 x.CalculateTraningAndTest();
-
-                Console.Write("    Organizar e contar palavras: ");
                 // Cria bag of words
                 x.GenerateOwnBagOfWords();
                 Console.WriteLine("OK");
