@@ -46,12 +46,26 @@ namespace Main
 
         public void RemoveNumbers()
         {
-            Texts.ForEach(t => t.Words.RemoveAll(w => Regex.IsMatch(w, @"[\d-]")));
+            foreach (var text in Texts)
+            {
+                text.Words = text.Words.Select(w => Regex.Replace(w, @"[\d-]", "")).ToList();
+            }
         }
 
         public void RemoveSpecialCharacters()
         {
-            Texts.ForEach(t => t.Words.RemoveAll(w => Regex.IsMatch(w, @"[^0-9a-zA-Z]+")));
+            foreach (var text in Texts)
+            {
+                text.Words = text.Words.Select(w => new string(w.ToCharArray().Where(c => Char.IsLetter(c)).ToArray())).ToList();
+            }
+        }
+
+        public void RemoveEmptySpaces()
+        {
+            foreach (var text in Texts)
+            {
+                text.Words = text.Words.Select(w => Regex.Replace(w, @"[\s+]", "")).ToList();
+            }
         }
 
         public void RemoveOther()
@@ -61,7 +75,7 @@ namespace Main
 
         public void RemoveEmpty()
         {
-            Texts.ForEach(t => t.Words.RemoveAll(w => w == String.Empty));
+            Texts.ForEach(t => t.Words.RemoveAll(w => string.IsNullOrEmpty(w)));
         }
 
         public void CalculateTraningAndTest()

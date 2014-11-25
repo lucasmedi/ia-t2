@@ -65,6 +65,7 @@ namespace Main
                 x.RemoveSpecialCharacters();
                 x.RemoveNumbers();
                 x.RemoveOther();
+                x.RemoveEmptySpaces();
                 x.RemoveEmpty();
                 Console.WriteLine("OK");
 
