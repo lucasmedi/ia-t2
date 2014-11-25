@@ -20,7 +20,7 @@ namespace Main
         {
             var directory = FolderHelper.GetDirectory(Folder.Gerados);
             var fileName = (op == Set.TRAINING ? "1-treino" : "2-teste");
-            var file = FolderHelper.CreateFile(directory, fileName + ".arff");
+            var file = FolderHelper.CreateFile(directory, fileName +"-" + AppConfig.FeatureRanking +  ".arff");
 
             // @relation <NomeDoArquivo>
             file.WriteLine("@relation <{0}> \n", fileName);
